@@ -4,7 +4,7 @@ const autoprefixer = require('autoprefixer');
 
 const CleanPlugin = require("clean-webpack-plugin");//清空文件夹
 const HtmlWebpackPlugin = require('html-webpack-plugin');// 引入html-webpack-plugin
-const ChunkManifestPlugin = require('chunk-manifest-webpack-plugin');//长效缓存
+// const ChunkManifestPlugin = require('chunk-manifest-webpack-plugin');//长效缓存
 
 // const ManifestPlugin = require('webpack-manifest-plugin');
 // const WebpackChunkHash = require('webpack-chunk-hash');
