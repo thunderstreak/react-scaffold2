@@ -2,7 +2,7 @@
   "name": "react-scaffold",
   "version": "2.0.0",
   "description": "webpack4 react",
-  "main": "index.js",
+  "main": "main.js",
   "sideEffects": false,
   "scripts": {
     "dev": "set NODE_ENV=development&& webpack-dev-server --config webpack.config.js",
