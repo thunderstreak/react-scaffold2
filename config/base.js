@@ -74,11 +74,7 @@ module.exports = {
         splitChunks: {
             cacheGroups: {
                 vendors: {//key 为entry中定义的 入口名称
-                    test        : chunk => (
-                        chunk.resource &&
-                        /\.js$/.test(chunk.resource) &&
-                        /node_modules/.test(chunk.resource)
-                    ),
+                    test        : chunk => ( chunk.resource && /\.js$/.test(chunk.resource) && /node_modules/.test(chunk.resource) ),
                     chunks      : 'initial',
                     name        : 'vendors',
                 },
