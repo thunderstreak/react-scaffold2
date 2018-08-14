@@ -19,6 +19,7 @@
   "author": "y",
   "license": "ISC",
   "dependencies": {
+    "antd-mobile": "^2.2.3",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
     "react-router": "^4.2.0",
@@ -41,7 +42,7 @@
     "less": "^3.0.4",
     "less-loader": "^4.1.0",
     "postcss-loader": "^2.1.5",
-    "react-hot-loader": "^3.0.0-beta.6",
+    "react-hot-loader": "^3.1.3",
     "style-loader": "^0.17.0",
     "url-loader": "^0.5.8",
     "webpack": "^4.8.1",

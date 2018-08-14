@@ -1,5 +1,5 @@
 import IndexComponent from '../components/index';
-import AboutComponent from '../components/About';
+import AboutComponent from '../components/about';
 import HomeComponent from '../components/home';
 import JoinComponent from '../components/Join';
 

@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Entry from './entry';
-import About from './About';
+import About from './about';
 import Home from './home';
 import Join from './Join';
 

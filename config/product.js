@@ -14,8 +14,8 @@ module.exports = {
     output: {
         path            : path.resolve(root, 'dist'),
         filename        : 'js/[name].[hash].js',
-        publicPath      : '/',
-        chunkFilename   : 'js/[name].[chunkhash].js'
+        publicPath      : '/',// 上线的地址CDN
+        chunkFilename   : 'js/[name].[chunkhash].js',
     },
     // 预处理加载器
     module: {

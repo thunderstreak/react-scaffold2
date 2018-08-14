@@ -3,11 +3,14 @@ import ReactDOM from 'react-dom';
 import {AppContainer} from 'react-hot-loader';
 import App from './components/App';
 
+import './styles/app.css';
+import './styles/main.less';
+import 'antd-mobile/dist/antd-mobile.css';
+// ReactDOM.render(<App />, document.getElementById('app'));
 
 
 // 定义要挂载的 DOM 节点
 const MountNode = document.getElementById('app');
-
 const render = (App) => {
     ReactDOM.render(
         <AppContainer>
@@ -15,7 +18,7 @@ const render = (App) => {
         </AppContainer>,
         MountNode
     )
-}
+};
 
 // 初始化调用
 render(App);
@@ -30,5 +33,8 @@ if (module.hot && process.env.NODE_ENV !== 'production') {
         // 从DOM 中移除已经挂载的 React 组件 然后重装
         ReactDOM.unmountComponentAtNode(MountNode);
         render(App);
+
+        // render(App);
+        // render(require('./components/App'))
     });
 }

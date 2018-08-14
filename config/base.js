@@ -185,6 +185,7 @@ module.exports = {
             	removeComments      : true, //移除HTML中的注释
             	collapseWhitespace  : true //删除空白符与换行符
             },
+            chunksSortMode: 'none', //如果使用webpack4将该配置项设置为'none'
             // showErrors:true,//显示错误警告到页面上？？？
             // chunksSortMode: 'dependency',//必须通过上面的 CommonsChunkPlugin 的依赖关系自动添加 js，css 等
         }),
