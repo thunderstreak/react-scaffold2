@@ -1,19 +1,30 @@
-import React from 'react';
+import React,{Component,Fragment} from 'react';
 import {Button} from 'antd-mobile';
+import Calculator from './commons/Calculator';
 
-export default class About extends React.Component{
+
+export default class About extends Component{
     constructor(props){
         super(props);
         this.state = {
-            msg:'abouts'
+            msg:'abouts',
+            clicks:0,
         }
+    }
+    handleClick(e){
+        // this.setState(prevState => ({
+        //     clicks: prevState.clicks + 1
+        // }));
+        this.setState({clicks:this.state.clicks += 1});
+        console.log(this.state.clicks);
     }
     render(){
         return(
-            <div>
+            <Fragment>
+                <Calculator/>
                 <h2>{this.state.msg}</h2>
-                <Button loading>k</Button>
-            </div>
+                <Button loading onClick={this.handleClick.bind(this)}>k</Button>
+            </Fragment>
         )
     }
 }

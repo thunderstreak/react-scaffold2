@@ -7,27 +7,42 @@ export default class Form extends React.Component{
             msg:'form',
             textareaval:'',
             selected:'txt4',
-            options:[{text:'txt1'},{text:'txt2'},{text:'txt3'},{text:'txt4'}]
+            options:[{text:'txt1'},{text:'txt2'},{text:'txt3'},{text:'txt4'}],
+
+            isCheckbox:true,
         };
 
-        this.submitform = this.submitform.bind(this);
-        this.changeTextarea = this.changeTextarea.bind(this);
     }
-    changeTextarea(e){
-        this.setState({textareaval:e.target.value});
+
+    // 获取表单数据
+    getFromData(target){
+        let data = {};
+        target.querySelectorAll("[name]").forEach((v) => {
+            data[v.name] = v.value;
+        });
+        console.log(data);
     }
+
+    // 表单提交
     submitform(e){
         e.preventDefault();
-        console.log(this.state.textareaval);
+        console.log(e.target.name);
+        this.getFromData(e.target)
     }
-    changeSelect(e){
-        this.setState({selected:e.target.value});
+
+    // 处理所有input输入
+    handlerChange(e){
+        let {name,value,type,checked} = e.target;
+        this.setState({
+            [name]:type === 'checkbox' ? checked : value
+        })
     }
     render(){
+        let [textareaval,selected,isCheckbox] = [this.state.textareaval,this.state.selected,this.state.isCheckbox];
         return(
-            <form onSubmit={this.submitform}>
-                <textarea style={{display:'block'}} name="" id="" cols="30" rows="10" value={this.state.textareaval} onChange={this.changeTextarea}/>{this.state.textareaval}
-                <select name="" id="" value={this.state.selected} onChange={this.changeSelect.bind(this)}>
+            <form name="form" onSubmit={this.submitform.bind(this)}>
+                <textarea style={{display:'block'}} name="textareaval" id="" cols="30" rows="10" value={textareaval} onChange={this.handlerChange.bind(this)}/>{textareaval}
+                <select name="selected" id="" value={selected} onChange={this.handlerChange.bind(this)}>
                     {
                         this.state.options.map((v,i) => {
                             return(
@@ -36,6 +51,9 @@ export default class Form extends React.Component{
                         })
                     }
                 </select>
+                <div>
+                    <input type="checkbox" name="isCheckbox" checked={isCheckbox} onChange={this.handlerChange.bind(this)}/>
+                </div>
                 <input type="submit" value={'submit'}/>
             </form>
         )

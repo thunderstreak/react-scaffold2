@@ -15,6 +15,9 @@ export default class Home extends React.Component {
                 <li><Link to="/about">About</Link></li>
                 <li><Link to="/topics">Topics</Link></li>
                 <li><Link to="/entry">entry</Link></li>
+                <li><Link to="/Products">Products</Link></li>
+                <li><Link to="/higher">higher</Link></li>
+                <li><Link to="/renderProp">renderProp</Link></li>
             </ul>
 
         );
