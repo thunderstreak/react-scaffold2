@@ -18,6 +18,7 @@ export default class Home extends React.Component {
                 <li><Link to="/Products">Products</Link></li>
                 <li><Link to="/higher">higher</Link></li>
                 <li><Link to="/renderProp">renderProp</Link></li>
+                <li><Link to="/lifecycle">lifecycle</Link></li>
             </ul>
 
         );

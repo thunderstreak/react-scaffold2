@@ -1,20 +1,48 @@
 import React from 'react';
-import {BrowserRouter as Router, Route, Link} from 'react-router-dom'
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
+import Loadable from 'react-loadable';
 import {Popover, NavBar, Icon} from 'antd-mobile';
 
-import Entry from './entry';
-import Home from './home';
-import About from './about';
-import Topics from './topics';
-import Products from './views/Products';
-import Higher from './higher/CartItem';
-import RenderProp from './RenderProps/MouseTracker';
+// 基于路由的代码分隔
+const Loading = () => <div>Loading</div>;
+const Entry = Loadable({
+    loader  :() => import('./entry'),
+    loading :Loading
+});
+const Home = Loadable({
+    loader  :() => import('./home'),
+    loading :Loading
+});
+const About = Loadable({
+    loader  :() => import('./about'),
+    loading :Loading
+});
+const Topics = Loadable({
+    loader  :() => import('./topics'),
+    loading :Loading
+});
+const Products = Loadable({
+    loader  :() => import('./views/Products'),
+    loading :Loading
+});
+const Lifecycle = Loadable({
+    loader  :() => import('./views/Lifecycle'),
+    loading :Loading
+});
+const Higher = Loadable({
+    loader  :() => import('./higher/CartItem'),
+    loading :Loading
+});
+const RenderProp = Loadable({
+    loader  :() => import('./RenderProps/MouseTracker'),
+    loading :Loading
+});
+
+
 
 import createStore from '../stores/store';
 import themeReducer from '../stores/reducer';
-
 const store = createStore(themeReducer);
-
 
 const Item = Popover.Item;
 const myImg = src => <img src={`https://gw.alipayobjects.com/zos/rmsportal/${src}.svg`} className="am-icon am-icon-xs" alt=""/>;
@@ -82,7 +110,7 @@ export default class App extends React.Component {
                     ]}
                 >NavBar</NavBar>
                 <Router>
-                    <div>
+                    <Switch>
                         <Route exact path="/" component={Home}/>
                         <Route path="/about" component={About}/>
                         <Route path="/topics" component={Topics}/>
@@ -90,7 +118,8 @@ export default class App extends React.Component {
                         <Route path="/products" component={Products}/>
                         <Route path="/higher" component={Higher}/>
                         <Route path="/renderProp" component={RenderProp}/>
-                    </div>
+                        <Route path="/lifecycle" component={Lifecycle}/>
+                    </Switch>
                 </Router>
             </div>
         )

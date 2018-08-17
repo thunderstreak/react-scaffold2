@@ -14,7 +14,11 @@ export default class Mouse extends Component{
         let [x,y] = [e.clientX,e.clientY];
         this.setState({x,y})
     }
-
+        
+    testParentComponent(){
+        console.log('testParentComponent');
+    }
+    
     render(){
         return(
             <div style={{height:'100px'}} onMouseMove={this.handlerMouse.bind(this)}>

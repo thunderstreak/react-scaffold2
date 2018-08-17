@@ -9,6 +9,7 @@ export default class Entry extends React.Component {
             msg: 'Hello World !'
         };
     }
+
     render() {
         return (
             <div id="Hello">
