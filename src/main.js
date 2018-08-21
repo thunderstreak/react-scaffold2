@@ -3,9 +3,13 @@ import ReactDOM from 'react-dom';
 import {AppContainer} from 'react-hot-loader';
 import {Provider} from 'react-redux';
 
+import stores from './redux/stores'
+
 import { createStore } from 'redux';
 import themeReducer from './redux/reducers/reduxTest';
 const store = createStore(themeReducer);
+
+// console.log(stores,store);
 import App from './components/App';
 
 import './styles/app.css';
@@ -17,7 +21,7 @@ const MountNode = document.getElementById('app');
 const render = (App) => {
     ReactDOM.render(
         <AppContainer>
-            <Provider store={store}>
+            <Provider store={stores}>
                 <App/>
             </Provider>
         </AppContainer>,

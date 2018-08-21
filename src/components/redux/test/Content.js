@@ -4,7 +4,12 @@ import ThemeSwitch from './ThemeSwitch'
 import Test from './test'
 import { connect } from 'react-redux'
 
-class Content extends Component {
+/*
+* 装饰器
+* */
+const mapStateToProps = (state) => ({ themeColor: state.themeColor});
+@connect(mapStateToProps)
+export default class Content extends Component {
     static propTypes = {
         themeColor: PropTypes.string
     };
@@ -16,7 +21,7 @@ class Content extends Component {
     }
     componentDidMount(){
         this.testEl.setInputValue('red');
-        // console.log(this);
+        console.log(this.themeEl);
     }
 
     render () {
@@ -31,10 +36,8 @@ class Content extends Component {
     }
 }
 
-const mapStateToProps = (state) => {
-    return {
-        themeColor: state.themeColor
-    }
-};
-
-export default connect(mapStateToProps)(Content)
+/*
+* 不用装饰器的写法
+* */
+// const mapStateToProps = (state) => ({ themeColor: state.themeColor});
+// export default connect(mapStateToProps)(Content)

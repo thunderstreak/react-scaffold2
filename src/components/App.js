@@ -45,6 +45,14 @@ const reduxTest = Loadable({
     loader  :() => import('./redux/test/index'),
     loading :Loading
 });
+const Fetch = Loadable({
+    loader  :() => import('./views/fetch'),
+    loading :Loading
+});
+const Toast = Loadable({
+    loader  :() => import('./Dialog/Dialog'),
+    loading :Loading
+});
 
 /*
 * redux
@@ -129,6 +137,7 @@ export default class App extends React.Component {
                         <Route path="/lifecycle" component={Lifecycle}/>
                         <Route path="/counter" component={Counter}/>
                         <Route path="/reduxTest" component={reduxTest}/>
+                        <Route path="/fetch" component={Fetch}/>
                     </Switch>
                 </Router>
             </div>

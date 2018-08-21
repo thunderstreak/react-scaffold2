@@ -1,4 +1,5 @@
-import React,{Component,Fragment} from 'react';
+import React,{Component,Fragment} from 'react'
+import lib from 'TOOLS/lib'
 
 export default class Lifecycle extends Component{
     // 组件实例被创建和插入DOM中时被调用
@@ -26,6 +27,10 @@ export default class Lifecycle extends Component{
     // 在组件被装配后立即调用,在该方法里设置状态将会触发重渲。适合实现网络请求
     componentDidMount(){
         this.input.focus();
+        console.log(1);
+        // fetch('https://www.apiopen.top/journalismApi').then((res)=>{
+        //     console.log(res.body);
+        // })
     }
     // 在组件被卸载和销毁之前立刻调用。可以在该方法里处理任何必要的清理工作，例如解绑定时器，取消网络请求，清理任何在componentDidMount环节创建的DOM元素。
     componentWillUnmount(){

@@ -1,12 +1,13 @@
 import React, { Component } from 'react'
 import Counter from './counter'
 import Summary from './summary'
-const style = {
-    margin: "20px"
-}
 
-class ControlPanel extends Component {
+
+export default class ControlPanel extends Component {
     render() {
+        const style = {
+            margin: "20px"
+        };
         return (
             <div style={style}>
                 <Counter caption="First" />
@@ -18,4 +19,3 @@ class ControlPanel extends Component {
         )
     }
 }
-export default ControlPanel

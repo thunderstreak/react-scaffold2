@@ -24,11 +24,12 @@ module.exports = {
     //入口文件配置解析类型
     resolve: {
         alias:{
+            'SRC'         :path.resolve(root,'src/'),
             'COMPONENTS'  :path.resolve(root,'src/components'),
             'IMAGES'      :path.resolve(root,'src/images'),
             'JAVASCRIPT'  :path.resolve(root,'src/javascript'),
             'STORES'      :path.resolve(root,'src/stores'),
-            'STYLE'       :path.resolve(root,'src/styles'),
+            'STYLES'      :path.resolve(root,'src/styles'),
             'TOOLS'       :path.resolve(root,'src/tools')
         },//路径优化
         extensions  : ['.js', '.jsx', '.json'],//自动扩展文件后缀名

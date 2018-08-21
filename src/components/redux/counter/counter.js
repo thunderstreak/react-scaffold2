@@ -1,28 +1,14 @@
-import React, {Component} from 'react'
-import {increment, decrement} from '../../../redux/actions'
+import React, {Component,Fragment} from 'react'
+import {increment, decrement} from 'SRC/redux/actions'
 import {connect} from 'react-redux';
 
-const buttonStyle = {
-    margin: "20px"
-}
-
-function Counter({caption, Increment, Decrement, value}) {
-    return (
-        <div>
-            <button style={buttonStyle} onClick={Increment}>+</button>
-            <button style={buttonStyle} onClick={Decrement}>-</button>
-            <span>{caption} count :{value}</span>
-        </div>
-    )
-}
-
-function mapState(state, ownProps) {
+const mapState = (state, ownProps) => {
     return {
         value: state[ownProps.caption]
     }
-}
+};
 
-function mapDispatch(dispatch, ownProps) {
+const mapDispatch = (dispatch, ownProps) => {
     return {
         'Increment': () => {
             dispatch(increment(ownProps.caption))
@@ -30,8 +16,26 @@ function mapDispatch(dispatch, ownProps) {
         'Decrement': () => {
             dispatch(decrement(ownProps.caption))
         }
+    }
+};
 
+@connect(mapState,mapDispatch)
+export default class Counter extends Component{
+    constructor(props){
+        super(props)
+    }
+
+    render(){
+        let {caption, Increment, Decrement, value} = this.props;
+        const buttonStyle = {
+            margin: "20px"
+        };
+        return(
+            <Fragment>
+                <button style={buttonStyle} onClick={Increment}>+</button>
+                <button style={buttonStyle} onClick={Decrement}>-</button>
+                <span>{caption} count :{value}</span>
+            </Fragment>
+        )
     }
 }
-
-export default connect(mapState, mapDispatch)(Counter)
