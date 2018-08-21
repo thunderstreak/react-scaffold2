@@ -1,20 +1,25 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {AppContainer} from 'react-hot-loader';
+import {Provider} from 'react-redux';
+
+import { createStore } from 'redux';
+import themeReducer from './redux/reducers/reduxTest';
+const store = createStore(themeReducer);
 import App from './components/App';
 
 import './styles/app.css';
 import './styles/main.less';
 import 'antd-mobile/dist/antd-mobile.css';
-// ReactDOM.render(<App />, document.getElementById('app'));
-
 
 // 定义要挂载的 DOM 节点
 const MountNode = document.getElementById('app');
 const render = (App) => {
     ReactDOM.render(
         <AppContainer>
-            <App/>
+            <Provider store={store}>
+                <App/>
+            </Provider>
         </AppContainer>,
         MountNode
     )
@@ -34,7 +39,7 @@ if (module.hot && process.env.NODE_ENV !== 'production') {
         ReactDOM.unmountComponentAtNode(MountNode);
         render(App);
 
-        // render(App);
-        // render(require('./components/App'))
+        // render(Index);
+        // render(require('./components/Index'))
     });
 }

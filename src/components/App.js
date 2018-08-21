@@ -37,12 +37,20 @@ const RenderProp = Loadable({
     loader  :() => import('./RenderProps/MouseTracker'),
     loading :Loading
 });
+const Counter = Loadable({
+    loader  :() => import('./redux/counter/counterPanel'),
+    loading :Loading
+});
+const reduxTest = Loadable({
+    loader  :() => import('./redux/test/index'),
+    loading :Loading
+});
+
+/*
+* redux
+* */
 
 
-
-import createStore from '../stores/store';
-import themeReducer from '../stores/reducer';
-const store = createStore(themeReducer);
 
 const Item = Popover.Item;
 const myImg = src => <img src={`https://gw.alipayobjects.com/zos/rmsportal/${src}.svg`} className="am-icon am-icon-xs" alt=""/>;
@@ -119,6 +127,8 @@ export default class App extends React.Component {
                         <Route path="/higher" component={Higher}/>
                         <Route path="/renderProp" component={RenderProp}/>
                         <Route path="/lifecycle" component={Lifecycle}/>
+                        <Route path="/counter" component={Counter}/>
+                        <Route path="/reduxTest" component={reduxTest}/>
                     </Switch>
                 </Router>
             </div>

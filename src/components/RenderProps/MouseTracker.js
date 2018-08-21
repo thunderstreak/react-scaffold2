@@ -7,14 +7,13 @@ export default class MouseTracker extends Component{
         this.initRefs();
     }
     initRefs(){
-        this.mouseEl = React.createRef();
         this.mouseImg = React.createRef();
     }
     renderMouseIMG(mouse){
         return <MouseIMG ref={this.mouseImg} mouse={mouse}/>
     }
     componentDidMount(){
-        console.log(this.mouseEl.current.testParentComponent,this.mouseImg);
+        console.log(this.mouseEl,this.mouseImg);
     }
     render(){
         return(
@@ -22,7 +21,7 @@ export default class MouseTracker extends Component{
                 {/*<Mouse render={
                 mouse => (<MouseIMG mouse={mouse}/>)
                 } />*/}
-                <Mouse ref={this.mouseEl} render={this.renderMouseIMG.bind(this)}/>
+                <Mouse ref={mouseEl => this.mouseEl = mouseEl} render={this.renderMouseIMG.bind(this)}/>
             </Fragment>
         )
     }

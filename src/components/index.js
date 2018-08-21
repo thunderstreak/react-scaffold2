@@ -1,10 +1,6 @@
 import React from 'react';
 
 import Entry from './entry';
-import About from './about';
-import Home from './home';
-import Join from './Join';
-
 
 export default class Index extends React.Component {
     render() {
