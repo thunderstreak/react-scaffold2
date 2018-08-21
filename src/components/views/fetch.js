@@ -24,11 +24,19 @@ export default class Fetch extends Component{
     componentDidUpdate(){
         // console.log(this.state.data);
     }
+
+    shouldComponentUpdate(nextProps, nextState){
+        console.log(nextState);
+        return nextState
+    }
+
     handleShow(){
         this.setState({show:true});
+
     }
     handleHide(){
         this.setState({show:false});
+        console.log(this.state.show);
     }
     picClick(e){
         console.log(this.Dialog);
@@ -63,8 +71,11 @@ export default class Fetch extends Component{
         return(
             <Fragment>
                 <button onClick={this.handleShow.bind(this)}>show</button>
+                -
                 <button onClick={this.handleHide.bind(this)}>hide</button>
+
                 {modal}
+                
                 <ul className={'fetch-ul'}>
                     {Object.keys(data).map((v,k) => {
                         return (

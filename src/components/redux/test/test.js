@@ -7,7 +7,7 @@ export default class Test extends React.Component{
         console.log(props);
     }
 
-    setInputValue(color){
+    setInputValue(color,event){
         this.state.color = color || 10;
     }
 
