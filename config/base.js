@@ -33,7 +33,7 @@ module.exports = {
             'TOOLS'       :path.resolve(root,'src/tools')
         },//路径优化
         extensions  : ['.js', '.jsx', '.json'],//自动扩展文件后缀名
-        modules     : [ 'node_modules' ],
+        // modules     : [ 'node_modules' ],
     },
     // 预处理加载器
     module: {
@@ -70,31 +70,10 @@ module.exports = {
             }
         ]
     },
-    // webpack 4 移除 CommonsChunkPlugin，取而代之的是两个新的配置项(optimization.splitChunks 和 optimization.runtimeChunk)
-    optimization: {
-        splitChunks: {
-            cacheGroups: {
-                vendors: {//key 为entry中定义的 入口名称
-                    test        : chunk => ( chunk.resource && /\.js$/.test(chunk.resource) && /node_modules/.test(chunk.resource) ),
-                    chunks      : 'initial',
-                    name        : 'vendors',
-                },
-                'async-vendors': {
-                    test        : /[\\/]node_modules[\\/]/,
-                    minChunks   : 2,
-                    chunks      : 'async',
-                    name        : 'async-vendors'
-                }
-            }
-        },
-        runtimeChunk: {
-            name: 'runtime'
-        }
-    },
     //插件
     plugins: [
         // 清空指定文件夹
-        new CleanPlugin(['dist']),
+        new CleanPlugin([path.join(__dirname, 'dist')]),
 
         // autoprefixer 是 postcss-loader 的 插件，需要在这里进行 autoprefixer 插件的配置
         new webpack.LoaderOptionsPlugin({

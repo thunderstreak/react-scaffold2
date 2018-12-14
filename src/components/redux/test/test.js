@@ -3,8 +3,9 @@ import React from 'react';
 export default class Test extends React.Component{
     constructor(props){
         super(props);
-        this.state = {}
-        console.log(props);
+        this.state = {
+            color:''
+        };
     }
 
     setInputValue(color,event){

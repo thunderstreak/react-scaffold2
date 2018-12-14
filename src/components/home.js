@@ -21,7 +21,7 @@ export default class Home extends React.Component {
                 <li><Link to="/lifecycle">lifecycle</Link></li>
                 <li><Link to="/counter">Counter</Link></li>
                 <li><Link to="/reduxTest">reduxTest</Link></li>
-                <li><Link to="/fetch">Fetch</Link></li>
+                <li><Link to="/fetch/1031">Fetch</Link></li>
             </ul>
 
         );

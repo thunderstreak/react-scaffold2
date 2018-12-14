@@ -7,6 +7,8 @@
         "react"
     ],
     "plugins": [
-        "react-hot-loader/babel","transform-decorators-legacy"
+        "react-hot-loader/babel",
+        "transform-decorators-legacy",
+        ["import", { "libraryName": "antd-mobile", "style": "css" }]
     ]
 }

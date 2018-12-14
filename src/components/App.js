@@ -3,6 +3,10 @@ import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import Loadable from 'react-loadable';
 import {Popover, NavBar, Icon} from 'antd-mobile';
 
+import 'STYLES/app.css';
+import 'STYLES/main.less';
+import 'antd-mobile/dist/antd-mobile.css';
+
 // 基于路由的代码分隔
 const Loading = () => <div>Loading</div>;
 const Entry = Loadable({
@@ -137,7 +141,7 @@ export default class App extends React.Component {
                         <Route path="/lifecycle" component={Lifecycle}/>
                         <Route path="/counter" component={Counter}/>
                         <Route path="/reduxTest" component={reduxTest}/>
-                        <Route path="/fetch" component={Fetch}/>
+                        <Route path="/fetch/:id" component={Fetch}/>
                     </Switch>
                 </Router>
             </div>

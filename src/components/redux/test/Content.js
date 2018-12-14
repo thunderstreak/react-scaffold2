@@ -13,15 +13,19 @@ export default class Content extends Component {
     static propTypes = {
         themeColor: PropTypes.string
     };
+    static defaultProps = {
+        themeColor: '',
+    };
     constructor(props){
         super(props);
         this.state = {
-            name:'Content'
+            name:'Content',
+            themeColor:''
         }
     }
     componentDidMount(){
-        this.testEl.setInputValue('red');
-        console.log(this.themeEl);
+        // this.testEl.setInputValue('red');
+        // console.log(this.themeEl);
     }
 
     render () {

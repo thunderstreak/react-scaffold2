@@ -18,7 +18,7 @@ export default class Fetch extends Component{
         })
     }
     componentDidMount(){
-        // console.log(this.state.data);
+        console.log(this.props);
     }
 
     componentDidUpdate(){

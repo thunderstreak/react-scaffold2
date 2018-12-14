@@ -1,14 +1,14 @@
 const webpackMerge = require('webpack-merge');
 
 const env = process.env.NODE_ENV;
-const commonConfig = require('./config/base.js');
+const base = require('./config/base.js');
 
 if(env === 'development'){
     let develop = require('./config/develop.js');
-    module.exports = webpackMerge(commonConfig,develop);
+    module.exports = webpackMerge(base,develop);
 }else if(env === 'production'){
     let product = require('./config/product.js');
-    module.exports = webpackMerge(commonConfig,product);
+    module.exports = webpackMerge(base,product);
 }else{
     console.log(process.env.NODE_ENV);
 }

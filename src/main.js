@@ -12,10 +12,6 @@ const store = createStore(themeReducer);
 // console.log(stores,store);
 import App from './components/App';
 
-import './styles/app.css';
-import './styles/main.less';
-import 'antd-mobile/dist/antd-mobile.css';
-
 // 定义要挂载的 DOM 节点
 const MountNode = document.getElementById('app');
 const render = (App) => {
